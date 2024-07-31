@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Imperative code</title>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.5em;
+        }
+        input {
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Imperative JS Programming example</h1>
+        <label htmlFor="emailInput">Enter email:</label>
+        <input id="emailInput" type="text" placeholder="Enter your email address">
+        <p></p>
+    </div>
+
+    <script>
+        // Check to see if entered string is valid email address
+        window.addEventListener("DOMContentLoaded", () => {
+            emailInput = document.querySelector("input");
+            
+            emailInput.addEventListener("blur", (e) => {
+                let enteredValue = e.target.value
+                console.log(enteredValue)
+                // Remove white from both sides of striing, checks for '@'
+                if (enteredValue.trim() === "" || !enteredValue.includes("@")) {
+                    let msg1 = "Please enter a valid email address"
+                    document.querySelector("p").innerHTML = msg1;
+                } else {
+                    let msg2 = "Appears to be a valid email address"
+                    document.querySelector("p").innerHTML = msg2;
+                }
+            })
+            console.log("DOM fully loaded and parsed.")
+        })
+    </script>
+</body>
+</html>
